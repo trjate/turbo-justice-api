@@ -12,7 +12,7 @@ gem 'rails-api'
 gem 'puma'
 gem 'refile', require: 'refile/rails'
 gem 'refile-s3'
-gem 'active_model_serializers'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem 'rack-cors', :require => 'rack/cors'
 
 # database
@@ -27,6 +27,9 @@ gem 'devise_token_auth'
 gem 'omniauth'
 gem 'hashie'
 
+group :test do
+  gem 'shoulda-matchers', '~> 3.0' # Simplified testing on Rspec testing platform. https://github.com/thoughtbot/shoulda-matchers
+end
 
 
 gem 'spring', :group => :development
