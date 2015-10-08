@@ -3,13 +3,13 @@ class Api::FlankersController < BaseController
 	before_action :authenticate_user!
 
 	def index
-		@flankers = Flanker.all
+		@flankers = current_user.flankers.all
 		render json: @flankers
 	end
 
   def create
     @flanker = Flanker.new(flanker_params)
-    @flanker.user_id = current_user.idc
+    @flanker.user_id = current_user.id
   end
 
   def show

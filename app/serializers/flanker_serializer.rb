@@ -1,5 +1,3 @@
 class FlankerSerializer < ActiveModel::Serializer
-  attributes :correct_guesses, :incorrect_guesses
-
-  belongs_to :user
+  attributes :id, :correct_guesses, :incorrect_guesses, :user_id
 end
