@@ -22,7 +22,6 @@ gem 'kaminari'
 
 # authentication
 
-gem 'devise'
 gem 'devise_token_auth'
 gem 'omniauth'
 gem 'hashie'
@@ -31,5 +30,8 @@ group :test do
   gem 'shoulda-matchers', '~> 3.0' # Simplified testing on Rspec testing platform. https://github.com/thoughtbot/shoulda-matchers
 end
 
-
-gem 'spring', :group => :development
+group :development do
+  gem 'spring'
+  gem 'pry'
+  gem 'pry-rails'
+end
