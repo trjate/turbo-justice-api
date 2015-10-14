@@ -7,4 +7,3 @@ class User < ActiveRecord::Base
   has_many :flankers
 
 end
-##
