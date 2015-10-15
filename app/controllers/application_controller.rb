@@ -8,5 +8,4 @@ class ApplicationController < ActionController::API
   def record_not_found
   	flash[:notice] = "Sorry - that resource cannot be found!"
   end
-
 end
