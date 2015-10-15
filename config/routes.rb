@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :flankers
 
   get 'user/:id',                to: 'user#show'
-  get 'user/:id/flankers',       to: 'user#index'
+  get 'user/:id/flankers',       to: 'user#index_flanker_games_for_user'
+  get 'users',                   to: 'user#index_all_users'
 
 
 end

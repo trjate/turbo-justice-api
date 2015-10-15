@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015002013) do
+ActiveRecord::Schema.define(version: 20151015221817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,8 +47,9 @@ ActiveRecord::Schema.define(version: 20151015002013) do
     t.json     "tokens"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "total_correct_flanker_guesses"
-    t.integer  "total_incorrect_flanker_guesses"
+    t.integer  "total_correct_flanker_guesses",   default: 0,       null: false
+    t.integer  "total_incorrect_flanker_guesses", default: 0,       null: false
+    t.integer  "flanker_games_played",            default: 0,       null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
