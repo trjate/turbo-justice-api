@@ -17,12 +17,18 @@ class Flanker < ActiveRecord::Base
 
   def convert_click_timestamps_to_seconds
 
+
   end
 
   def save_flanker_data!
     self.add_flanker_guesses_to_user!
     self.update_flanker_games_played!
-    self.convert_click_timestamps_to_seconds!
+  #  self.convert_click_timestamps_to_seconds!
+  #  self.set_click_times_url!
+  end
+
+  def set_clicktimes_url!
+    self.update(public_url: "https://#{ENV['S3_BUCKET']}.s3-#{ENV['AWS_REGION']}.amazonaws.com/store/#{self.audio_id}")
   end
 
 end
