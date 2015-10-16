@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  root to: 'devise_token_auth/registrations#create'
+  devise_for :users
+  
   mount_devise_token_auth_for 'User', at: 'auth'
   resources :flankers
 
