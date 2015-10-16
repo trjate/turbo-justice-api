@@ -36,7 +36,8 @@ __Example Success:__
 ```
 Status Code: :ok
 
-After a user registers he will need to pass the following parameters in the header of every subsequent request.  These will be provided in the response headers.
+
+After a user registers he will need to pass the following parameters in the header of every subsequent request.  These will be provided in the headers of the response at ```/auth'```.
 
 * access-token: ```string``` (ex. cUmnxi-0LYWyfPuD6CrMYQ)
 * client: ```string``` (ex. HavPTZL6KZIYu3eZqwwbLw)
