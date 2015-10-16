@@ -23,12 +23,9 @@ class FlankersController < ApplicationController
       end
     end
 
-
-
     def show
       render json: @flanker
     end
-
 
   private
 
