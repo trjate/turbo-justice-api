@@ -13,15 +13,17 @@ class FlankersController < ApplicationController
       @flanker.user_id = current_user.id
 
       if @flanker.save
-        @flanker.add_flanker_guesses_to_user!
-        @flanker.update_flanker_games_played!
-        render json: @flanker,
-          status: :ok
+         @flanker.save_flanker_data!
+
+         render json: @flanker,
+                status: :ok
       else
-        render json: { errors: @flanker.errors.full_messages },
-               status: :unprocessable_entity
+         render json: { errors: @flanker.errors.full_messages },
+                status: :unprocessable_entity
       end
     end
+
+
 
     def show
       render json: @flanker

@@ -15,4 +15,14 @@ class Flanker < ActiveRecord::Base
     i.update(flanker_games_played: i.flanker_games_played + 1)
   end
 
+  def convert_click_timestamps_to_seconds
+
+  end
+
+  def save_flanker_data!
+    self.add_flanker_guesses_to_user!
+    self.update_flanker_games_played!
+    self.convert_click_timestamps_to_seconds!
+  end
+
 end
