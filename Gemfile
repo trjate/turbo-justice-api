@@ -12,7 +12,7 @@ gem 'refile'
 gem 'refile-s3'
 gem 'active_model_serializers'
 gem 'rack-cors'
-gem 'dotenv'
+gem 'dotenv-rails'
 
 # database
 
