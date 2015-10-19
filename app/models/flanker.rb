@@ -2,6 +2,8 @@ class Flanker < ActiveRecord::Base
   belongs_to :user
   validates :correct_guesses, :incorrect_guesses, :user_id, presence: true
 
+  #attachment :flanker, extension: "csv"
+
   def add_flanker_guesses_to_user!
     x = self.user.total_correct_flanker_guesses
     y = self.user.total_incorrect_flanker_guesses
@@ -28,7 +30,7 @@ class Flanker < ActiveRecord::Base
   end
 
   def set_clicktimes_url!
-    self.update(public_url: "https://#{ENV['S3_BUCKET']}.s3-#{ENV['AWS_REGION']}.amazonaws.com/store/#{self.audio_id}")
+    self.update(clicktimes_url: "https://#{ENV['S3_BUCKET']}.s3-#{ENV['AWS_REGION']}.amazonaws.com/store/#{self.flanker_id}")
   end
 
 end
