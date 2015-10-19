@@ -28,9 +28,9 @@ class Flanker < ActiveRecord::Base
   #  self.convert_click_timestamps_to_seconds!
   #  self.set_click_times_url!
   end
-
-  def set_clicktimes_url!
-    self.update(clicktimes_url: "https://#{ENV['S3_BUCKET']}.s3-#{ENV['AWS_REGION']}.amazonaws.com/store/#{self.flanker_id}")
-  end
+  #
+  # def set_clicktimes_url!
+  #   self.update(clicktimes_url: "https://#{ENV['S3_BUCKET']}.s3-#{ENV['AWS_REGION']}.amazonaws.com/store/#{self.flanker_id}")
+  # end
 
 end
