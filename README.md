@@ -1,7 +1,7 @@
 #Healthy Aging API Documentation
 
 #URL:
-https://healthyaging-dev.elasticbeanstalk.com
+healthyaging-dev.elasticbeanstalk.com
 
 ##User
 
