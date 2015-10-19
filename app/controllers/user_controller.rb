@@ -9,13 +9,20 @@ class UserController < ApplicationController
     status: :ok
   end
 
+  def index_digit_symbol_games_for_user
+    @user = User.find(params[:id])
+    @digit_symbols = @user.digit_symbols.all
+    render json: @user.digit_symbols,
+    status: :ok
+  end
+
 # Show user information for given user
   def show
     @user = User.find(params[:id])
     render json: @user,
     status: :ok
   end
-  
+
 # Get all users
   def index_all_users
     @users = User.all
