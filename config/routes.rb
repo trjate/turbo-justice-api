@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  root to: 'devise_token_auth/registrations#create'
-
   mount_devise_token_auth_for 'User', at: 'auth'
   resources :flankers
 
@@ -9,5 +7,6 @@ Rails.application.routes.draw do
   get 'user/:id/flankers',       to: 'user#index_flanker_games_for_user'
   get 'users',                   to: 'user#index_all_users'
 
+  #testing
 
 end
