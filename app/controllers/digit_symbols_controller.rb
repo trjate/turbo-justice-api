@@ -13,7 +13,7 @@ class DigitSymbolsController < ApplicationController
       @digit_symbol.user_id = current_user.id
 
       if @digit_symbol.save
-         @digit_symbol.save_digit_symbol_data!
+         @digit_symbol.save_digit_symbol_data!(params)
 
          render json: @digit_symbol,
                 status: :ok
@@ -30,7 +30,7 @@ class DigitSymbolsController < ApplicationController
   private
 
     def digit_symbol_params
-      params.permit(:correct_guesses, :incorrect_guesses)
+      params.permit(:correct_guesses, :incorrect_guesses, :clicktimes)
     end
 
     def set_digit_symbol_id

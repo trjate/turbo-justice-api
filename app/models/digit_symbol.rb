@@ -1,6 +1,6 @@
 class DigitSymbol < ActiveRecord::Base
   belongs_to :user
-  validates :correct_guesses, :incorrect_guesses, :user_id, presence: true
+  validates :correct_guesses, :incorrect_guesses, :user_id, :clicktimes, presence: true
   serialize :clicktimes
 
   #attachment :digit_symbol, extension: "csv"
@@ -18,19 +18,28 @@ class DigitSymbol < ActiveRecord::Base
     i.update(digit_symbol_games_played: i.digit_symbol_games_played + 1)
   end
 
-  def convert_click_timestamps_to_seconds
+  # def add_clicktimes!(params)
+  #
+  # end
 
-
-  end
-
-  def save_digit_symbol_data!
+  def save_digit_symbol_data!(params)
     self.add_digit_symbol_guesses_to_user!
     self.update_digit_symbol_games_played!
-  #  self.convert_click_timestamps_to_seconds!
-  #  self.set_click_times_url!
+    self.calculate_and_save_clicktimes!(params)
   end
-  #
-  # def set_clicktimes_url!
-  #   self.update(clicktimes_url: "https://#{ENV['S3_BUCKET']}.s3-#{ENV['AWS_REGION']}.amazonaws.com/store/#{self.digit_symbol_id}")
-  # end
+
+  # Note: the first clicktime records the time it took the user to record his first answer after pressing start.
+  def calculate_and_save_clicktimes!(params)
+    self.clicktimes = params[:clicktimes]
+
+
+    self.clicktimes.to_i.each do |ct|
+      n = 0
+      until n == 4
+      ct.update(clicktimes: ct[n+1] - ct[n])
+    end
+    end
+
+
+  end
 end

@@ -13,7 +13,7 @@ class FlankersController < ApplicationController
       @flanker.user_id = current_user.id
 
       if @flanker.save
-         @flanker.save_flanker_data!
+         @flanker.save_flanker_data!(params)
 
          render json: @flanker,
                 status: :ok
@@ -30,7 +30,7 @@ class FlankersController < ApplicationController
   private
 
     def flanker_params
-      params.permit(:correct_guesses, :incorrect_guesses)
+      params.permit(:correct_guesses, :incorrect_guesses, :clicktimes)
     end
 
     def set_flanker_id
