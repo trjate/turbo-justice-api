@@ -1,7 +1,7 @@
 #Healthy Aging API Documentation
 
-This documentation will give you the various end points necessary to build a 
-comprehensive, cross-platform application for the Healthy Aging Study.  The 
+This documentation will give you the various end points necessary to build a
+comprehensive, cross-platform application for the Healthy Aging Study.  The
 Application will consist of a series of games: flanker, digit symbol, (x, y, z)  that will collect various performance data.  There will also be a host of patient data collected via survey forms.
 
 #URL:
@@ -41,7 +41,7 @@ __Example Success:__
 Status Code: :ok
 
 
-After a user registers he will need to pass the following parameters in the header of every subsequent request.  These will be provided in the headers of the response at ```/auth'```.
+After a user registers he will need to pass the following parameters in the header of every subsequent request.  These will be provided in the headers of the response at ```'/auth'```.
 
 * access-token: ```string``` (ex. cUmnxi-0LYWyfPuD6CrMYQ)
 * client: ```string``` (ex. HavPTZL6KZIYu3eZqwwbLw)
@@ -311,7 +311,3 @@ __Example Success:__
   }
 }
 ```
-
-
-
-
