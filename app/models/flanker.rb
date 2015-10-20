@@ -1,7 +1,7 @@
 class Flanker < ActiveRecord::Base
   belongs_to :user
   validates :correct_guesses, :incorrect_guesses, :user_id, presence: true
-
+  serialize :clicktimes
   #attachment :flanker, extension: "csv"
 
   def add_flanker_guesses_to_user!
@@ -28,7 +28,7 @@ class Flanker < ActiveRecord::Base
   #  self.convert_click_timestamps_to_seconds!
   #  self.set_click_times_url!
   end
-  #
+  
   # def set_clicktimes_url!
   #   self.update(clicktimes_url: "https://#{ENV['S3_BUCKET']}.s3-#{ENV['AWS_REGION']}.amazonaws.com/store/#{self.flanker_id}")
   # end
