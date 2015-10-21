@@ -116,7 +116,7 @@ __Example Success:__
       "incorrect_guesses": 9,
       "user_id": 2,
       "clicktimes": "1245, 1100, 988, 682"
-      
+
     }
   ]
 }
@@ -135,7 +135,7 @@ __Example Success:__
       "correct_guesses": 17,
       "incorrect_guesses": 9,
       "user_id": 2,
-      "clicktimes": "1445, 1400, 1299, 1001",
+      "clicktimes": "1445, 1400, 1299, 1001"
     },
     {
       "id": 2,
