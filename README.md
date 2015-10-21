@@ -34,7 +34,10 @@ __Example Success:__
     "updated_at": "2015-10-15T23:14:38.427Z",
     "total_correct_flanker_guesses": 0,
     "total_incorrect_flanker_guesses": 0,
-    "flanker_games_played": 0
+    "flanker_games_played": 0,
+    "total_correct_digit_symbol_guesses": 0,
+    "total_incorrect_digit_symbol_guesses": 0,
+    "digit_symbol_games_played": 0,
   }
 }
 ```
@@ -85,6 +88,8 @@ __Example Success:__
 ###Index Flanker Games For User
 ```GET ‘/user/:id/flankers’```
 
+The first clicktime records the time it took the user to record his first answer after pressing start.  The rest record the time between each click in milliseconds.
+
 
 __Example Success:__
 
@@ -95,19 +100,23 @@ __Example Success:__
       "id": 1,
       "correct_guesses": 27,
       "incorrect_guesses": 4,
-      "user_id": 2
+      "user_id": 2,
+      "clicktimes": "1445, 1400, 1299, 1001"
     },
     {
       "id": 2,
       "correct_guesses": 144,
       "incorrect_guesses": 3,
-      "user_id": 2
+      "user_id": 2,
+      "clicktimes": "1343, 1734, 1888, 1001"
     },
     {
       "id": 3,
       "correct_guesses": 66,
       "incorrect_guesses": 9,
-      "user_id": 2
+      "user_id": 2,
+      "clicktimes": "1245, 1100, 988, 682"
+      
     }
   ]
 }
@@ -125,19 +134,22 @@ __Example Success:__
       "id": 1,
       "correct_guesses": 17,
       "incorrect_guesses": 9,
-      "user_id": 2
+      "user_id": 2,
+      "clicktimes": "1445, 1400, 1299, 1001",
     },
     {
       "id": 2,
       "correct_guesses": 93,
       "incorrect_guesses": 15,
-      "user_id": 2
+      "user_id": 2,
+      "clicktimes": "1445, 1400, 1299, 1001"
     },
     {
       "id": 3,
       "correct_guesses": 44,
       "incorrect_guesses": 21,
-      "user_id": 3
+      "user_id": 3,
+      "clicktimes": "1445, 1400, 1299, 1001"
     }
   ]
 }
@@ -171,6 +183,7 @@ __Example Success:__
 
 * ```correct_guesses```
 * ```incorrect_guesses```
+* ```clicktimes```
 
 __Example Success:__
 
@@ -180,7 +193,8 @@ __Example Success:__
     "id": 8,
     "correct_guesses": 30,
     "incorrect_guesses": 5,
-    "user_id": 3
+    "user_id": 3,
+    "clicktimes": "1445, 1400, 1299, 1001, 741, 902"
   }
 }
 ```
@@ -197,25 +211,29 @@ __Example Success:__
       "id": 1,
       "correct_guesses": 15,
       "incorrect_guesses": 2,
-      "user_id": 1
+      "user_id": 1,
+      "clicktimes": "1445, 1400, 1299, 1001"
     },
     {
       "id": 2,
       "correct_guesses": 201,
       "incorrect_guesses": 35,
-      "user_id": 2
+      "user_id": 2,
+      "clicktimes": "1445, 1400, 1299, 1001"
     },
     {
       "id": 3,
       "correct_guesses": 105,
       "incorrect_guesses": 0,
-      "user_id": 3
+      "user_id": 3,
+      "clicktimes": "1445, 1400, 1299, 1001"
     },
     {
       "id": 4,
       "correct_guesses": 88,
       "incorrect_guesses": 21,
-      "user_id": 3
+      "user_id": 3,
+      "clicktimes": "1445, 1400, 1299, 1001"
     }
   ]
 }
@@ -231,7 +249,8 @@ __Example Success:__
     "id": 1,
     "correct_guesses": 50,
     "incorrect_guesses": 5,
-    "user_id": 2
+    "user_id": 2,
+    "clicktimes": "1445, 1400, 1299, 1001"
   }
 }
 ```
@@ -245,6 +264,7 @@ __Example Success:__
 
 * ```correct_guesses```
 * ```incorrect_guesses```
+* ```clicktimes```
 
 __Example Success:__
 
@@ -255,6 +275,7 @@ __Example Success:__
     "correct_guesses": 10,
     "incorrect_guesses": 1,
     "user_id": 4
+    "clicktimes": "1445, 1400, 1299, 1001"
   }
 }
 ```
@@ -271,25 +292,29 @@ __Example Success:__
       "id": 1,
       "correct_guesses": 10,
       "incorrect_guesses": 0,
-      "user_id": 1
+      "user_id": 1,
+      "clicktimes": "1445, 1400, 1299, 1001"
     },
     {
       "id": 2,
       "correct_guesses": 88,
       "incorrect_guesses": 22,
-      "user_id": 2
+      "user_id": 2,
+      "clicktimes": "1445, 1400, 1299, 1001"
     },
     {
       "id": 3,
       "correct_guesses": 77,
       "incorrect_guesses": 31,
-      "user_id": 3
+      "user_id": 3,
+      "clicktimes": "1445, 1400, 1299, 1001"
     },
     {
       "id": 4,
       "correct_guesses": 100,
       "incorrect_guesses": 5,
-      "user_id": 3
+      "user_id": 3,
+      "clicktimes": "1445, 1400, 1299, 1001"
     }
   ]
 }
@@ -307,7 +332,8 @@ __Example Success:__
     "id": 12,
     "correct_guesses": 38,
     "incorrect_guesses": 13,
-    "user_id": 4
+    "user_id": 4,
+    "clicktimes": "1445, 1400, 1299, 1001"
   }
 }
 ```

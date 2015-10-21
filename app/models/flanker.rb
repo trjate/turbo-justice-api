@@ -1,7 +1,6 @@
 class Flanker < ActiveRecord::Base
   belongs_to :user
   validates :correct_guesses, :incorrect_guesses, :user_id, :clicktimes, presence: true
-  serialize :clicktimes
   #attachment :flanker, extension: "csv"
 
   def add_flanker_guesses_to_user!
@@ -24,8 +23,20 @@ class Flanker < ActiveRecord::Base
   def save_flanker_data!(params)
     self.add_flanker_guesses_to_user!
     self.update_flanker_games_played!
-    self.add_clicktimes!(params)
+    self.calculate_and_save_clicktimes!(params)
   end
 
+  # Note: the first clicktime records the time it took the user to record his first answer after pressing start.
+
+  def calculate_and_save_clicktimes!(params)
+    clicktimes = params[:clicktimes].split(",").map { |x| x.to_i }
+    self.update(clicktimes: find_difference(clicktimes).join(","))
+  end
+
+  private
+
+  def find_difference(cts_array)
+     cts_array.each_with_index.map {|x,i| cts_array[i+1] - x unless i == cts_array.length - 1 }.compact
+  end
 
 end
