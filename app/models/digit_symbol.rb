@@ -1,7 +1,6 @@
 class DigitSymbol < ActiveRecord::Base
   belongs_to :user
-  validates :correct_guesses, :incorrect_guesses, :user_id, :clicktimes, presence: true
-  serialize :clicktimes
+  validates :correct_guesses, :incorrect_guesses, :user_id,  presence: true
 
   #attachment :digit_symbol, extension: "csv"
 
@@ -18,10 +17,6 @@ class DigitSymbol < ActiveRecord::Base
     i.update(digit_symbol_games_played: i.digit_symbol_games_played + 1)
   end
 
-  # def add_clicktimes!(params)
-  #
-  # end
-
   def save_digit_symbol_data!(params)
     self.add_digit_symbol_guesses_to_user!
     self.update_digit_symbol_games_played!
@@ -29,17 +24,17 @@ class DigitSymbol < ActiveRecord::Base
   end
 
   # Note: the first clicktime records the time it took the user to record his first answer after pressing start.
+
   def calculate_and_save_clicktimes!(params)
-    self.clicktimes = params[:clicktimes]
-
-
-    self.clicktimes.to_i.each do |ct|
-      n = 0
-      until n == 4
-      ct.update(clicktimes: ct[n+1] - ct[n])
-    end
-    end
-
-
+    clicktimes = params[:clicktimes].split(",").map { |x| x.to_i }
+    self.update(clicktimes: find_difference(clicktimes).join(","))
   end
+
+  private
+
+  def find_difference(cts_array)
+     cts_array.each_with_index.map {|x,i| cts_array[i+1] - x unless i == cts_array.length - 1 }.compact
+  end
+
+
 end

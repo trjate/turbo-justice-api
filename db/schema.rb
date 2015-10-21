@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020184505) do
+ActiveRecord::Schema.define(version: 20151021204304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20151020184505) do
     t.integer  "user_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.text     "clicktimes"
+    t.string   "clicktimes"
   end
 
   create_table "flankers", force: :cascade do |t|
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20151020184505) do
     t.integer  "correct_guesses",   default: 0
     t.integer  "incorrect_guesses", default: 0
     t.integer  "user_id"
-    t.text     "clicktimes"
+    t.string   "clicktimes"
   end
 
   create_table "users", force: :cascade do |t|
