@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021204304) do
+ActiveRecord::Schema.define(version: 20151022224156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,32 @@ ActiveRecord::Schema.define(version: 20151021204304) do
     t.integer  "correct_guesses",   default: 0
     t.integer  "incorrect_guesses", default: 0
     t.integer  "user_id"
+    t.string   "clicktimes"
+  end
+
+  create_table "memory_impairments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "time_to_read_category_task_instructions"
+    t.integer  "number_of_clicks_to_end_of_category_task"
+    t.integer  "number_of_correct_clicks_checkers"
+    t.integer  "number_of_incorrect_clicks_checkers"
+    t.integer  "number_of_correct_clicks_saucer"
+    t.integer  "number_of_incorrect_clicks_saucer"
+    t.integer  "number_of_correct_clicks_telegram"
+    t.integer  "number_of_incorrect_clicks_telegram"
+    t.integer  "number_of_correct_clicks_red_cross"
+    t.integer  "number_of_incorrect_clicks_red_cross"
+    t.integer  "time_to_end_of_category_task"
+    t.string   "category_task_clicktimes"
+    t.boolean  "category_task_successfully_completed?"
+    t.integer  "time_to_end_of_recall_task"
+    t.integer  "number_of_correct_answers_that_were_mistyped"
+    t.integer  "number_of_incorrect_answers"
+    t.boolean  "recall_task_successfully_completed?"
+    t.integer  "points",                                       default: 0
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+    t.integer  "memory_impairment_game_launch_timestamp",      default: 0
     t.string   "clicktimes"
   end
 
@@ -63,6 +89,8 @@ ActiveRecord::Schema.define(version: 20151021204304) do
     t.integer  "total_correct_digit_symbol_guesses",   default: 0
     t.integer  "total_incorrect_digit_symbol_guesses", default: 0
     t.integer  "digit_symbol_games_played",            default: 0
+    t.integer  "total_memory_impairment_points",       default: 0
+    t.integer  "memory_impairment_games_played",       default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree

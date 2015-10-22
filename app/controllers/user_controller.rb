@@ -16,6 +16,12 @@ class UserController < ApplicationController
     status: :ok
   end
 
+  def index_memory_impairment_games_for_user
+    @user = User.find(params[:id])
+    @memory_impairments = @user.memory_impairments.all
+    render json: @user.memory_impairments,
+    status: :ok
+
 # Show user information for given user
   def show
     @user = User.find(params[:id])

@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
   has_many :flankers
   has_many :digit_symbols
-  
+  has_many :memory_impairments
+
 end

@@ -16,10 +16,6 @@ class Flanker < ActiveRecord::Base
     i.update(flanker_games_played: i.flanker_games_played + 1)
   end
 
-  def add_clicktimes!(params)
-    self.clicktimes = params[:clicktimes]
-  end
-
   def save_flanker_data!(params)
     self.add_flanker_guesses_to_user!
     self.update_flanker_games_played!
