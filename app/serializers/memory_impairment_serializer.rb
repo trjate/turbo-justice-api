@@ -1,6 +1,6 @@
 class MemoryImpairmentSerializer < ActiveModel::Serializer
 
-  attributes  :id, :user_id, :time_to_read_category_task_instructions, :number_of_clicks_to_end_of_category_task,
+  attributes  :id, :user_id, :clicktimes, :memory_impairment_game_launch_timestamp, :time_to_read_category_task_instructions, :number_of_clicks_to_end_of_category_task,
               :number_of_correct_clicks_checkers, :number_of_incorrect_clicks_checkers,
               :number_of_correct_clicks_saucer, :number_of_incorrect_clicks_saucer,
               :number_of_correct_clicks_telegram, :number_of_incorrect_clicks_telegram,

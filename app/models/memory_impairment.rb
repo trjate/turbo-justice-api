@@ -1,6 +1,7 @@
 class MemoryImpairment < ActiveRecord::Base
   belongs_to :user
   validates :user_id, :points, presence: true
+  serialize :clicktimes
 
     def add_memory_impairment_points_to_user!
       x = self.user.total_memory_impairment_points
@@ -20,19 +21,26 @@ class MemoryImpairment < ActiveRecord::Base
                params[:number_of_incorrect_clicks_red_cross]
     end
 
-    def calculate_and_save_times!(params)
-      launch, first_click = params[:memory_impairment_game_launch_timestamp].to_i,
-                            params[:clicktimes].split(",").map {|x| x.to_i}.first
-
-      self.update(time_to_read_category_task_instructions:
-      set_time_to_read_category_task_instructions(launch,first_click))
+    def calculate_and_save_clicktimes!(params)
+      clicktimes = params[:clicktimes].split(",").map(&:to_i)
+      self.update(clicktimes: find_difference(clicktimes))
     end
+
+    def calculate_and_save_time_to_read_category_task_instructions!(params)
+      launch, first_click = params[:game_launch_timestamp].to_i,
+                            params[:clicktimes].split(",").map(&:to_i).first
+
+      self.update(time_to_read_category_task_instructions: first_click - launch)
+    end
+
+# NUMBER OF CLICKS -1 WHERE TIMESTAMP < TIMESTAMP of category task completion 
 
     def save_memory_impairment_data!(params)
       self.add_memory_impairment_points_to_user!
       self.update_memory_impairment_games_played!
       self.add_click_data!(params)
-      self.calculate_and_save_times!(params)
+      self.calculate_and_save_clicktimes!(params)
+      self.calculate_and_save_time_to_read_category_task_instructions!(params)
     end
 
     private
@@ -43,11 +51,5 @@ class MemoryImpairment < ActiveRecord::Base
 
     ## Note: time_to_read_category_task_instructions is defined as the time between launching the
     ## memory impairment game and starting the game.
-
-    def set_time_to_read_category_task_instructions(launch, first_click)
-      first_click - launch
-    end
-
-
 
 end
