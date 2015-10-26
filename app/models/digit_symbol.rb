@@ -1,7 +1,7 @@
 class DigitSymbol < ActiveRecord::Base
   belongs_to :user
   validates :correct_guesses, :incorrect_guesses, :user_id,  presence: true
-
+  serialize :clicktimes
   #attachment :digit_symbol, extension: "csv"
 
   def add_digit_symbol_guesses_to_user!
@@ -26,8 +26,8 @@ class DigitSymbol < ActiveRecord::Base
   # Note: the first clicktime records the time it took the user to record his first answer after pressing start.
 
   def calculate_and_save_clicktimes!(params)
-    clicktimes = params[:clicktimes].split(",").map { |x| x.to_i }
-    self.update(clicktimes: find_difference(clicktimes).join(","))
+    clicktimes = params[:clicktimes].split(",").map(&:to_i)
+    self.update(clicktimes: find_difference(clicktimes))
   end
 
   private

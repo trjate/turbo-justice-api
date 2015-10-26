@@ -2,6 +2,7 @@ class Flanker < ActiveRecord::Base
   belongs_to :user
   validates :correct_guesses, :incorrect_guesses, :user_id, :clicktimes, presence: true
   #attachment :flanker, extension: "csv"
+  serialize :clicktimes
 
   def add_flanker_guesses_to_user!
     x = self.user.total_correct_flanker_guesses
@@ -25,8 +26,8 @@ class Flanker < ActiveRecord::Base
   # Note: the first clicktime records the time it took the user to record his first answer after pressing start.
 
   def calculate_and_save_clicktimes!(params)
-    clicktimes = params[:clicktimes].split(",").map { |x| x.to_i }
-    self.update(clicktimes: find_difference(clicktimes).join(","))
+    clicktimes = params[:clicktimes].split(",").map(&:to_i)
+    self.update(clicktimes: find_difference(clicktimes))
   end
 
   private

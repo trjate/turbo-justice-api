@@ -20,23 +20,19 @@ class MemoryImpairment < ActiveRecord::Base
                params[:number_of_incorrect_clicks_red_cross]
     end
 
+    def calculate_and_save_times!(params)
+      launch, first_click = params[:memory_impairment_game_launch_timestamp].to_i,
+                            params[:clicktimes].split(",").map {|x| x.to_i}.first
+
+      self.update(time_to_read_category_task_instructions:
+      set_time_to_read_category_task_instructions(launch,first_click))
+    end
+
     def save_memory_impairment_data!(params)
       self.add_memory_impairment_points_to_user!
       self.update_memory_impairment_games_played!
       self.add_click_data!(params)
       self.calculate_and_save_times!(params)
-    end
-
-    def calculate_and_save_times!(params)
-      launch, first_click = params[:memory_impairment_game_launch_timestamp].to_i,
-                            params[:clicktimes].split(",").map {|x| x.to_i}.first ### WTFF TAYLORR!!!!
-                            binding.pry
-
-
-      self.update(time_to_read_category_task_instructions: set_time_to_read_category_task_instructions(launch,first_click))
-
-      # times = params[:clicktimes].split(",").map { |x| x.to_i }
-      # self.update(clicktimes: find_difference(clicktimes).join(","))
     end
 
     private
@@ -45,8 +41,8 @@ class MemoryImpairment < ActiveRecord::Base
        cts_array.each_with_index.map {|x,i| cts_array[i+1] - x unless i == cts_array.length - 1 }.compact
     end
 
-    ## Note: time_to_read_category_task_instructions is defined as the time between launching the the
-    ## memory impairment game and the first click.
+    ## Note: time_to_read_category_task_instructions is defined as the time between launching the
+    ## memory impairment game and starting the game.
 
     def set_time_to_read_category_task_instructions(launch, first_click)
       first_click - launch
