@@ -14,8 +14,8 @@ healthyaging-env.elasticbeanstalk.com
 ```POST ‘/auth’```
 ######Required Params:
 
-* ```email```
-* ```password```
+* ```email``` - ```string```
+* ```password``` - ```string```
 
 __Example Success:__
 
@@ -181,9 +181,11 @@ __Example Success:__
 
 ######Required Params:
 
-* ```correct_guesses```
-* ```incorrect_guesses```
-* ```clicktimes```
+* ```correct_guesses``` - ```integer```
+* ```incorrect_guesses``` - ```integer```
+* ```clicktimes``` - ```integer```
+
+######*Clicktimes should be passed as an array of integers in Unix timestamp milliseconds.* 
 
 __Example Success:__
 

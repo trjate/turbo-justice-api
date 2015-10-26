@@ -32,10 +32,9 @@ class MemoryImpairment < ActiveRecord::Base
                             params[:clicktimes].split(",").map {|x| x.to_i}.first ### WTFF TAYLORR!!!!
                             binding.pry
 
-      self.update(time_to_read_category_task_instructions:
-                  time_to_read_category_task_instructions(launch, first_click))
 
-      binding.pry
+      self.update(time_to_read_category_task_instructions: set_time_to_read_category_task_instructions(launch,first_click))
+
       # times = params[:clicktimes].split(",").map { |x| x.to_i }
       # self.update(clicktimes: find_difference(clicktimes).join(","))
     end
@@ -49,7 +48,7 @@ class MemoryImpairment < ActiveRecord::Base
     ## Note: time_to_read_category_task_instructions is defined as the time between launching the the
     ## memory impairment game and the first click.
 
-    def time_to_read_category_task_instructions(launch, first_click)
+    def set_time_to_read_category_task_instructions(launch, first_click)
       first_click - launch
     end
 
