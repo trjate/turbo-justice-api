@@ -12,7 +12,7 @@ Application will consist of a series of games: flanker, digit symbol, (x, y, z) 
 ###Register
 
 ```POST ‘/auth’```
-######Required Params:
+######Required Body Params:
 
 * ```email``` - ```string```
 * ```password``` - ```string```
