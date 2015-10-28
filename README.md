@@ -5,7 +5,7 @@ comprehensive, cross-platform application for the Healthy Aging Study.  The
 Application will consist of a series of games: flanker, digit symbol, (x, y, z)  that will collect various performance data.  There will also be a host of patient data collected via survey forms.
 
 ##URL:
-http://healthyaging-env.elasticbeanstalk.com
+`http://healthyaging-env.elasticbeanstalk.com`
 
 ##User
 
