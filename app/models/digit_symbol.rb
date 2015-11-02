@@ -1,10 +1,15 @@
 class DigitSymbol < ActiveRecord::Base
+  # model associations
   belongs_to :user
-  validates :correct_guesses, :incorrect_guesses, :user_id,  presence: true
-  serialize :clicktimes
-  #attachment :digit_symbol, extension: "csv"
 
-  def add_digit_symbol_guesses_to_user!
+  # validations
+  validates :correct_guesses, :incorrect_guesses, :user_id, presence: true
+
+  # allows clicktimes to be stored as an integer array
+  serialize :clicktimes
+
+  # methods
+    def add_digit_symbol_guesses_to_user!
     x = self.user.total_correct_digit_symbol_guesses
     y = self.user.total_incorrect_digit_symbol_guesses
 

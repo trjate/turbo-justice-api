@@ -1,9 +1,14 @@
 class Flanker < ActiveRecord::Base
+  # model associations
   belongs_to :user
+
+  # validations
   validates :correct_guesses, :incorrect_guesses, :user_id, :clicktimes, presence: true
-  #attachment :flanker, extension: "csv"
+
+  # allows clicktimes to be stored as an integer array
   serialize :clicktimes
 
+  # methods
   def add_flanker_guesses_to_user!
     x = self.user.total_correct_flanker_guesses
     y = self.user.total_incorrect_flanker_guesses
