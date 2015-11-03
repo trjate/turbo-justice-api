@@ -19,14 +19,14 @@ class User < ActiveRecord::Base
                                message: " must be an integer less than 1000" }
 
    def add_attributes_to_users!
-     @user.update(gender: params[:gender], emory_patient?: params[:emory_patient?]
+     @user.update(gender: params[:gender], emory_patient?: params[:emory_patient?],
                   transgender?: params[:transgender?], race: params[:race],
                   hispanic_or_latino?: params[:hispanic_or_latino?],
                   education_level: params[:education_level], married?: params[:married?],
                   employed?: params[:employed?], headcount_in_household: params[:headcount_in_household],
                   total_pretax_household_income: params[:total_pretax_household_income],
                   height: params[:height], weight: params[:weight],
-                  writing_hand:, params[:writing_hand])
+                  writing_hand: params[:writing_hand])
    end
 
 
