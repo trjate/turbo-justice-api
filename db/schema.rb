@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103020439) do
+ActiveRecord::Schema.define(version: 20151103201544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,25 +72,6 @@ ActiveRecord::Schema.define(version: 20151103020439) do
     t.integer  "typical_sleeptime?"
   end
 
-  create_table "general_health_and_activities_compared_to_one_year_ago", force: :cascade do |t|
-    t.string   "substantially_declined_memory?"
-    t.string   "others_tell_that_you_repeat_questions?"
-    t.string   "misplace_things_more_often?"
-    t.string   "rely_more_on_written_reminders?"
-    t.string   "need_more_help_to_remember_appointments_or_holidays?"
-    t.string   "have_more_trouble_recalling_names_finding_right_word_or_complet"
-    t.string   "have_more_trouble_driving?"
-    t.string   "have_difficulty_managing_money?"
-    t.string   "less_involved_in_social_activities?"
-    t.string   "work_performance_declined_significantly?"
-    t.string   "have_more_trouble_following_news_book_plots_movies_or_shows?"
-    t.string   "activities_that_are_substantially_more_difficult?"
-    t.string   "more_apt_to_get_lost_in_another_city?"
-    t.string   "more_difficulty_using_household_appliances?"
-    t.datetime "created_at",                                                      null: false
-    t.datetime "updated_at",                                                      null: false
-  end
-
   create_table "general_health_and_activities_over_last_two_weeks", force: :cascade do |t|
     t.string   "little_interest_or_pleasure_in_doing_things?"
     t.string   "feeling_down_depressed_or_hopeless?"
@@ -109,6 +90,26 @@ ActiveRecord::Schema.define(version: 20151103020439) do
     t.string   "feeling_afraid_something_bad_might_happen?"
     t.datetime "created_at",                                                   null: false
     t.datetime "updated_at",                                                   null: false
+  end
+
+  create_table "general_health_and_activity_vs_last_years", force: :cascade do |t|
+    t.string   "substantially_declined_memory?"
+    t.string   "string"
+    t.string   "others_tell_that_you_repeat_questions?"
+    t.string   "misplace_things_more_often?"
+    t.string   "rely_more_on_written_reminders?"
+    t.string   "need_more_help_to_remember_appointments_or_holidays?"
+    t.string   "have_more_trouble_recalling_names_finding_right_word_or_complet"
+    t.string   "have_more_trouble_driving?"
+    t.string   "have_difficulty_managing_money?"
+    t.string   "less_involved_in_social_activities?"
+    t.string   "work_performance_declined_significantly?"
+    t.string   "have_more_trouble_following_news_book_plots_movies_or_shows?"
+    t.string   "activities_that_are_substantially_more_difficult?"
+    t.string   "more_apt_to_get_lost_in_another_city?"
+    t.string   "more_difficulty_using_household_appliances?"
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -206,8 +207,10 @@ ActiveRecord::Schema.define(version: 20151103020439) do
   end
 
   create_table "medication_and_maintenance_rxes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+    t.boolean  "currently_taking_Coumadin_Warfarin_or_anti_coagulants?"
+    t.boolean  "currently_taking_other_rx_medications?"
   end
 
   create_table "memory_impairments", force: :cascade do |t|

@@ -1,6 +1,6 @@
-class CreateGeneralHealthAndActivityComparedToOneYearAgos < ActiveRecord::Migration
+class CreateGeneralHealthAndActivityVsLastYear < ActiveRecord::Migration
   def change
-    create_table :general_health_and_activity_compared_to_one_year_agos do |t|
+    create_table :general_health_and_activity_vs_last_years do |t|
       t.string :substantially_declined_memory?, :string
       t.string :others_tell_that_you_repeat_questions?, :string
       t.string :misplace_things_more_often?, :string
@@ -16,7 +16,7 @@ class CreateGeneralHealthAndActivityComparedToOneYearAgos < ActiveRecord::Migrat
       t.string :more_apt_to_get_lost_in_another_city?, :string
       t.string :more_difficulty_using_household_appliances?, :string
 
-      t.timestamps null: false
+            t.timestamps null: false
     end
   end
 end
