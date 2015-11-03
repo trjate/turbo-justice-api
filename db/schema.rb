@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103201544) do
+ActiveRecord::Schema.define(version: 20151103230305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20151103201544) do
     t.string   "misplace_things_more_often?"
     t.string   "rely_more_on_written_reminders?"
     t.string   "need_more_help_to_remember_appointments_or_holidays?"
-    t.string   "have_more_trouble_recalling_names_finding_right_word_or_complet"
+    t.string   "have_more_trouble_recalling_names_or_finding_right_word?"
     t.string   "have_more_trouble_driving?"
     t.string   "have_difficulty_managing_money?"
     t.string   "less_involved_in_social_activities?"
@@ -108,16 +108,16 @@ ActiveRecord::Schema.define(version: 20151103201544) do
     t.string   "activities_that_are_substantially_more_difficult?"
     t.string   "more_apt_to_get_lost_in_another_city?"
     t.string   "more_difficulty_using_household_appliances?"
-    t.datetime "created_at",                                                      null: false
-    t.datetime "updated_at",                                                      null: false
+    t.datetime "created_at",                                                   null: false
+    t.datetime "updated_at",                                                   null: false
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.datetime "created_at",                                                      null: false
-    t.datetime "updated_at",                                                      null: false
-    t.boolean  "ever_work_job_for_6_plus_months_with_regular_solvent_exposure?"
-    t.boolean  "ever_work_job_for_6_plus_months_with_regular_metal_fume_exposur"
-    t.boolean  "ever_work_job_for_6_plus_months_with_regular_pesticide_exposure"
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
+    t.boolean  "ever_work_for_6_plus_months_with_regular_solvent_exposure?"
+    t.boolean  "ever_work_for_6_plus_months_with_regular_metal_fume_exposure?"
+    t.boolean  "ever_work_for_6_plus_months_with_regular_pesticide_exposure?"
   end
 
   create_table "medical_histories", force: :cascade do |t|
@@ -143,9 +143,9 @@ ActiveRecord::Schema.define(version: 20151103201544) do
     t.boolean  "currently_taking_high_cholesterol_or_triglycerides_medication?"
     t.boolean  "ever_had_pulmonary_embolism_DVT_or_blood_clots?"
     t.string   "age_when_diagnosed_with_pulmonary_embolism_DVT_or_blood_clots?"
-    t.boolean  "currently_taking_pulmonary_embolism_DVT_or_blood_clots_medicati"
+    t.boolean  "currently_taking_pulmonary_embolism_DVT_or_blood_clots_meds?"
     t.boolean  "ever_had_other_vascular_or_circulatory_system_problems?"
-    t.string   "age_when_diagnosed_with_other_vascular_or_circulatory_system_pr"
+    t.string   "age_when_diagnosed_with_other_vascular_or_circulatory_problems?"
     t.boolean  "currently_taking_other_vascular_or_circulatory_system_problems?"
     t.boolean  "ever_had_migraine_headaches?"
     t.string   "age_when_diagnosed_with_migraine_headaches?"
@@ -159,9 +159,9 @@ ActiveRecord::Schema.define(version: 20151103201544) do
     t.boolean  "ever_had_other_dementia?"
     t.string   "age_when_diagnosed_with_other_dementia?"
     t.boolean  "currently_taking_other_dementia_medication?"
-    t.boolean  "ever_had_concussion_or_traumatic_brain_injury_with_loss_of_cons"
-    t.string   "age_when_concussion_or_traumatic_brain_injury_with_loss_of_cons"
-    t.boolean  "currently_taking_concussion_or_traumatic_brain_injury_medicatio"
+    t.boolean  "had_concussion_or_traumatic_brain_injury_with_unconsciousness?"
+    t.string   "age_when_concussion_or_traumatic_brain_injury_occurred?"
+    t.boolean  "currently_taking_concussion_or_traumatic_brain_injury_meds?"
     t.boolean  "ever_had_spinal_cord_injury_or_impairment?"
     t.string   "age_when_spinal_cord_injury_or_impairment_occurred?"
     t.boolean  "currently_taking_spinal_cord_injury_or_impairment_medication?"
@@ -202,8 +202,8 @@ ActiveRecord::Schema.define(version: 20151103201544) do
     t.boolean  "ever_had_sleep_apnea?"
     t.boolean  "ever_had_thyroid_problems?"
     t.boolean  "ever_had_diabetes?"
-    t.boolean  "ever_had_condition_related_vision_problems_that_interfered_with"
-    t.boolean  "ever_had_physical_disabilities_that_interfered_with_everyday_ac"
+    t.boolean  "ever_had_vision_problems_that_interfered_with_daily_stuff?"
+    t.boolean  "ever_had_physical_disabilities_that_interfered_with_daily_stuff"
   end
 
   create_table "medication_and_maintenance_rxes", force: :cascade do |t|

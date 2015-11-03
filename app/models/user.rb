@@ -6,12 +6,15 @@ class User < ActiveRecord::Base
   has_many :flankers
   has_many :digit_symbols
   has_many :memory_impairments
-  has_one  :activity_and_habit
+  has_one  :activities_and_habit
   has_one  :family_question
   has_one  :general_health_and_activity
   has_one  :job
   has_one  :medical_history
   has_one  :medication_and_maintenance_rx
+  has_one  :reference
+  has_one  :general_health_and_activity_vs_last_year
+  has_one  :general_health_and_activities_over_last_two_week
 
   WEIGHT_REGEX = /\A(?-i)(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\d){1,})|(?=(.*\W){1,}))^.*$\z/
 
