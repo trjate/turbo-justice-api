@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104003822) do
+ActiveRecord::Schema.define(version: 20151104025954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(version: 20151104003822) do
     t.boolean  "currently_taking_pulmonary_embolism_DVT_or_blood_clots_meds?"
     t.boolean  "ever_had_other_vascular_or_circulatory_system_problems?"
     t.string   "age_when_diagnosed_with_other_vascular_or_circulatory_problems?"
-    t.boolean  "currently_taking_other_vascular_or_circulatory_system_problems?"
+    t.boolean  "currently_taking_other_vascular_or_circulatory_system_meds?"
     t.boolean  "ever_had_migraine_headaches?"
     t.string   "age_when_diagnosed_with_migraine_headaches?"
     t.boolean  "currently_taking_migraine_headaches_medication?"

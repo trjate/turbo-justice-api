@@ -1,6 +1,7 @@
 class UserController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user_id, except: [:create, :new, :index]
+  before_action :set_user, except: [:create, :new, :index]
+  before_action :set_user_id, only: [:update]
 
 # Get all Flanker games of given user
   def index_flanker_games_for_user
@@ -52,8 +53,12 @@ class UserController < ApplicationController
       params.permit()
     end
 
-    def set_user_id
+    def set_user
       @user = User.find(params[:id])
+    end
+
+    def set_user_id
+      @user.user_id = current_user.id
     end
 
 
