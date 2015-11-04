@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103230305) do
+ActiveRecord::Schema.define(version: 20151104003822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20151103230305) do
     t.boolean  "ever_had_music_instruction_or_training?"
     t.datetime "created_at",                                               null: false
     t.datetime "updated_at",                                               null: false
+    t.integer  "user_id"
   end
 
   create_table "digit_symbols", force: :cascade do |t|
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 20151103230305) do
   create_table "family_questions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "flankers", force: :cascade do |t|
@@ -70,6 +72,7 @@ ActiveRecord::Schema.define(version: 20151103230305) do
     t.string   "typical_bedtime?"
     t.string   "typical_waketime?"
     t.integer  "typical_sleeptime?"
+    t.integer  "user_id"
   end
 
   create_table "general_health_and_activities_over_last_two_weeks", force: :cascade do |t|
@@ -90,6 +93,7 @@ ActiveRecord::Schema.define(version: 20151103230305) do
     t.string   "feeling_afraid_something_bad_might_happen?"
     t.datetime "created_at",                                                   null: false
     t.datetime "updated_at",                                                   null: false
+    t.integer  "user_id"
   end
 
   create_table "general_health_and_activity_vs_last_years", force: :cascade do |t|
@@ -110,6 +114,7 @@ ActiveRecord::Schema.define(version: 20151103230305) do
     t.string   "more_difficulty_using_household_appliances?"
     t.datetime "created_at",                                                   null: false
     t.datetime "updated_at",                                                   null: false
+    t.integer  "user_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -118,6 +123,7 @@ ActiveRecord::Schema.define(version: 20151103230305) do
     t.boolean  "ever_work_for_6_plus_months_with_regular_solvent_exposure?"
     t.boolean  "ever_work_for_6_plus_months_with_regular_metal_fume_exposure?"
     t.boolean  "ever_work_for_6_plus_months_with_regular_pesticide_exposure?"
+    t.integer  "user_id"
   end
 
   create_table "medical_histories", force: :cascade do |t|
@@ -204,6 +210,7 @@ ActiveRecord::Schema.define(version: 20151103230305) do
     t.boolean  "ever_had_diabetes?"
     t.boolean  "ever_had_vision_problems_that_interfered_with_daily_stuff?"
     t.boolean  "ever_had_physical_disabilities_that_interfered_with_daily_stuff"
+    t.integer  "user_id"
   end
 
   create_table "medication_and_maintenance_rxes", force: :cascade do |t|
@@ -211,6 +218,7 @@ ActiveRecord::Schema.define(version: 20151103230305) do
     t.datetime "updated_at",                                             null: false
     t.boolean  "currently_taking_Coumadin_Warfarin_or_anti_coagulants?"
     t.boolean  "currently_taking_other_rx_medications?"
+    t.integer  "user_id"
   end
 
   create_table "memory_impairments", force: :cascade do |t|
@@ -243,6 +251,7 @@ ActiveRecord::Schema.define(version: 20151103230305) do
   create_table "references", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
