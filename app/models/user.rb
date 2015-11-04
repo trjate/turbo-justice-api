@@ -458,7 +458,13 @@ class User < ActiveRecord::Base
       ever_had_physical_disabilities_that_interfered_with_daily_stuff:
       params[:ever_had_physical_disabilities_that_interfered_with_daily_stuff],
 
-      
+    @user.medication_and_maintenance_rx.update(
+
+      currently_taking_Coumadin_Warfarin_or_anti_coagulants?:
+      params[:currently_taking_Coumadin_Warfarin_or_anti_coagulants?],
+
+      currently_taking_other_rx_medications?:
+      params[:currently_taking_other_rx_medications?])
 
 
 
