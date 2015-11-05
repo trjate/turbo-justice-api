@@ -2,6 +2,7 @@ class FamilyQuestion < ActiveRecord::Base
   belongs_to :user
 
   def update_family_data!(params)
+    binding.pry
     self.update(relation:
                 params[:relation],
 

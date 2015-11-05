@@ -3,7 +3,7 @@ class GeneralHealthAndActivity < ActiveRecord::Base
 
   def add_general_health_and_activity_data!(params)
 
-     @user.general_health_and_activity.update(
+     self.update(
 
      overall_physical_health?:
      params[:overall_physical_health?],

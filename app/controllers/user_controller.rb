@@ -2,6 +2,8 @@ class UserController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, except: [:create, :new, :index]
   before_action :set_user_id, only: [:update]
+  #after_create    :check_for_family, on: :update
+  #9before_action :populate_survey_model!, on: :update
 
 # Get all Flanker games of given user
   def index_flanker_games_for_user
@@ -37,13 +39,14 @@ class UserController < ApplicationController
 
 # Update user with survey data points
   def update
-    if @user.save
-       @user.add_attributes_to_users!(params)
-       if @user.biological_mother_known? ||
-          @user.biological_father_known? ||
-          @user.has_biological_siblings? == true
-          @user.family_question.update_family_data!(params)
 
+    if @user.save
+      @user.add_attributes_to_users!(params)
+       family_question = @user.check_for_family
+
+       family_question.update_family_data!(params) if family_question
+
+      #  @user.add_remaining_user_data!(params)
       render json: @user,
       status: :ok
     else

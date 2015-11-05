@@ -21,7 +21,6 @@ class User < ActiveRecord::Base
   # validates :weight, format: { with: WEIGHT_REGEX,     #{ errors: @user.weight.errors.full_messages }
     #                           message: " must be an integer less than 1000" }
 
-
    def add_attributes_to_users!(params)
 
       self.update(gender:                        params[:gender],
@@ -43,7 +42,35 @@ class User < ActiveRecord::Base
 
    end
 
+   def check_for_family
 
+     if self.biological_mother_known? ||
+        self.biological_father_known? ||
+        self.has_biological_siblings? == true
+        FamilyQuestion.new(user_id: self.id)
+     end
+
+   end
+   
+   def add_remaining_user_data!(params)
+
+     self.activities_and_habit.add_activities_and_habits!(params)
+
+     self.general_health_and_activities_over_last_two_week.
+     add_general_health_and_activity_data_over_last_two_weeks!(params)
+
+     self.general_health_and_activity.add_general_health_and_activity_data!(params)
+
+     self.general_health_and_activity_vs_last_year.add_general_health_and_activity_data_vs_last_year!(params)
+
+     self.job.add_job_data!(params)
+
+     self.medical_history.add_medical_history_data!(params)
+
+     self.medication_and_maintenance_rx.add_medication_and_maintenance_rx_data!(params)
+
+     #self.reference.add_references!(params)
+   end
 
 
 
