@@ -1,8 +1,10 @@
 class FamilyQuestion < ActiveRecord::Base
   belongs_to :user
 
+  # this prevents a user from having more than 1 Family Question record.
+  validates :user_id, uniqueness: true
+
   def update_family_data!(params)
-    binding.pry
     self.update(relation:
                 params[:relation],
 

@@ -1,8 +1,8 @@
 class MedicalHistorySerializer < ActiveModel::Serializer
 
-  attributes
-
-              :id, :user_id, :ever_had_hypertension?,
+  attributes  :id,
+              :user_id,
+              :ever_had_hypertension?,
               :age_when_diagnosed_with_hypertension?,
               :currently_taking_hypertension_medication?,
               :ever_had_TIA?,

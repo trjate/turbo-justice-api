@@ -1,4 +1,4 @@
-class RemoveStringFromGeneralHealthAndActivityVsLastYear < ActiveRecord::Migration
+class DropStringFromGeneralHealthAndActivityVsLastYear < ActiveRecord::Migration
   def change
     remove_column :general_health_and_activity_vs_last_years, :string, :string
   end

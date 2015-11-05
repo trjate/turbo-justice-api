@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_one  :general_health_and_activity_vs_last_year
   has_one  :general_health_and_activities_over_last_two_week
 
+
   WEIGHT_REGEX = /\A(?-i)(?=^.{8,}$)((?!.*\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\d){1,})|(?=(.*\W){1,}))^.*$\z/
 
   # validates :weight, format: { with: WEIGHT_REGEX,     #{ errors: @user.weight.errors.full_messages }
@@ -51,7 +52,7 @@ class User < ActiveRecord::Base
      end
 
    end
-   
+
    def add_remaining_user_data!(params)
 
      self.activities_and_habit.add_activities_and_habits!(params)

@@ -43,7 +43,6 @@ class UserController < ApplicationController
     if @user.save
       @user.add_attributes_to_users!(params)
        family_question = @user.check_for_family
-
        family_question.update_family_data!(params) if family_question
 
       #  @user.add_remaining_user_data!(params)
@@ -53,6 +52,7 @@ class UserController < ApplicationController
       render json: { errors: @user.errors.full_messages },
              status: :unprocessable_entity
     end
+    
   end
 
   private

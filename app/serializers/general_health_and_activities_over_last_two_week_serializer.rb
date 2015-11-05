@@ -1,5 +1,9 @@
 class GeneralHealthAndActivitiesOverLastTwoWeekSerializer < ActiveModel::Serializer
-  attributes :little_interest_or_pleasure_in_doing_things? :feeling_down_depressed_or_hopeless?,
+
+  attributes :id,
+             :user_id,
+             :little_interest_or_pleasure_in_doing_things?,
+             :feeling_down_depressed_or_hopeless?,
              :trouble_falling_or_staying_asleep_or_sleeping_too_much?,
              :feeling_tired_or_having_little_energy?,
              :poor_appetite_or_overeating?,
