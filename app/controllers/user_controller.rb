@@ -38,7 +38,12 @@ class UserController < ApplicationController
 # Update user with survey data points
   def update
     if @user.save
-      @user.add_attributes_to_users!(params)
+       @user.add_attributes_to_users!(params)
+       if @user.biological_mother_known? ||
+          @user.biological_father_known? ||
+          @user.has_biological_siblings? == true
+          @user.family_question.update_family_data!(params)
+
       render json: @user,
       status: :ok
     else
@@ -58,7 +63,7 @@ class UserController < ApplicationController
     end
 
     def set_user_id
-      @user.user_id = current_user.id
+      @user.id = current_user.id
     end
 
 

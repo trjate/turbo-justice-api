@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104025954) do
+ActiveRecord::Schema.define(version: 20151105023659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,9 +45,21 @@ ActiveRecord::Schema.define(version: 20151104025954) do
   end
 
   create_table "family_questions", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.integer  "user_id"
+    t.string   "relation"
+    t.integer  "birthyear"
+    t.string   "still_living?"
+    t.string   "diagnosed_with_MCI?"
+    t.string   "diagnosed_with_AD?"
+    t.string   "diagnosed_with_memory_loss_or_dementia?"
+    t.string   "diagnosed_with_Parkinsons?"
+    t.string   "ever_had_coronary_heart_disease_or_heart_attack?"
+    t.string   "diagnosed_with_diabetes?"
+    t.string   "diagnosed_with_hypertension?"
+    t.string   "diagnosed_with_high_cholesterol_or_triglycerides?"
+    t.string   "diagnosed_with_stroke_or_TIA?"
   end
 
   create_table "flankers", force: :cascade do |t|
@@ -98,7 +110,6 @@ ActiveRecord::Schema.define(version: 20151104025954) do
 
   create_table "general_health_and_activity_vs_last_years", force: :cascade do |t|
     t.string   "substantially_declined_memory?"
-    t.string   "string"
     t.string   "others_tell_that_you_repeat_questions?"
     t.string   "misplace_things_more_often?"
     t.string   "rely_more_on_written_reminders?"
@@ -298,6 +309,9 @@ ActiveRecord::Schema.define(version: 20151104025954) do
     t.string   "writing_hand"
     t.string   "gender"
     t.string   "emory_patient?"
+    t.boolean  "biological_mother_known?"
+    t.boolean  "biological_father_known?"
+    t.boolean  "has_biological_siblings?"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
