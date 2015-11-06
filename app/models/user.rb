@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   # validates :weight, format: { with: WEIGHT_REGEX,     #{ errors: @user.weight.errors.full_messages }
     #                           message: " must be an integer less than 1000" }
 
-   def add_attributes_to_users!(params)
+   def add_attributes_to_user!(params)
 
       self.update(gender:                        params[:gender],
                   emory_patient?:                params[:emory_patient?],
