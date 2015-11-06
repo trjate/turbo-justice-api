@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, except: [:create, :new, :index]
+  before_action :set_user, except: [:create, :new, :index_all_users]
   before_action :set_user_id, only: [:update]
   #after_create    :check_for_family, on: :update
   #9before_action :populate_survey_model!, on: :update
@@ -41,18 +41,18 @@ class UserController < ApplicationController
   def update
 
     if @user.save
-      @user.add_attributes_to_users!(params)
-       family_question = @user.check_for_family
-       family_question.update_family_data!(params) if family_question
+       @user.add_attributes_to_user!(params)
+       family_questions = @user.check_for_family
+       family_questions.update_family_data!(params) if family_questions
 
       #  @user.add_remaining_user_data!(params)
-      render json: @user,
-      status: :ok
+       render json: @user,
+       status: :ok
     else
-      render json: { errors: @user.errors.full_messages },
-             status: :unprocessable_entity
+       render json: { errors: @user.errors.full_messages },
+              status: :unprocessable_entity
     end
-    
+
   end
 
   private

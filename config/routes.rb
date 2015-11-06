@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   get 'user/:id/memory_impairments',  to: 'user#index_memory_impairment_games_for_user'
   get 'users',                        to: 'user#index_all_users'
   put 'user/:id/survey',              to: 'user#update'
+
+  get 'family_questions',             to: 'family_questions#index'
+  
 end
