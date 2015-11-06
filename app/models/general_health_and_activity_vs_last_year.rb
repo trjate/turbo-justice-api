@@ -1,9 +1,10 @@
 class GeneralHealthAndActivityVsLastYear < ActiveRecord::Base
   belongs_to :user
+  validates :user_id, uniqueness: true
 
   def add_general_health_and_activity_data_vs_last_year!(params)
 
-     @user.general_health_and_activity_vs_last_year.update(
+     self.update(
 
      substantially_declined_memory?:
      params[:substantially_declined_memory?],

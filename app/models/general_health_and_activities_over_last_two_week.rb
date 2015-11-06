@@ -1,9 +1,10 @@
 class GeneralHealthAndActivitiesOverLastTwoWeek < ActiveRecord::Base
   belongs_to :user
+  validates :user_id, uniqueness: true
 
   def add_general_health_and_activity_data_over_last_two_weeks!(params)
 
-     @user.general_health_and_activities_over_last_two_week.update(
+     self.update(
 
      little_interest_or_pleasure_in_doing_things?:
      params[:little_interest_or_pleasure_in_doing_things?],

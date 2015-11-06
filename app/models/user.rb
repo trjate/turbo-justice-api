@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules.
+  include DeviseTokenAuth::Concerns::User
   devise :database_authenticatable, :registerable, #confirmable,
           :recoverable, :rememberable, :omniauthable, :trackable, :validatable
-  include DeviseTokenAuth::Concerns::User
+
   has_many :flankers
   has_many :digit_symbols
   has_many :memory_impairments
@@ -45,32 +46,40 @@ class User < ActiveRecord::Base
 
    def check_for_family
 
-     if self.biological_mother_known? ||
-        self.biological_father_known? ||
-        self.has_biological_siblings? == true
-        FamilyQuestion.new(user_id: self.id)
-     end
+                                        if self.biological_mother_known? ||
+                                           self.biological_father_known? ||
+                                           self.has_biological_siblings? == true
+                                           FamilyQuestion.new(user_id: self.id)
+                                        end
+
+   end
+
+   def initialize_tables
+
+                                    ActivitiesAndHabit.create(user_id: self.id)
+             GeneralHealthAndActivitiesOverLastTwoWeek.create(user_id: self.id)
+                              GeneralHealthAndActivity.create(user_id: self.id)
+                    GeneralHealthAndActivityVsLastYear.create(user_id: self.id)
+                                                   Job.create(user_id: self.id)
+                                        MedicalHistory.create(user_id: self.id)
+                            MedicationAndMaintenanceRx.create(user_id: self.id)
+                                             Reference.create(user_id: self.id)
 
    end
 
    def add_remaining_user_data!(params)
 
      self.activities_and_habit.add_activities_and_habits!(params)
-
      self.general_health_and_activities_over_last_two_week.
      add_general_health_and_activity_data_over_last_two_weeks!(params)
-
      self.general_health_and_activity.add_general_health_and_activity_data!(params)
-
-     self.general_health_and_activity_vs_last_year.add_general_health_and_activity_data_vs_last_year!(params)
-
+     self.general_health_and_activity_vs_last_year.
+     add_general_health_and_activity_data_vs_last_year!(params)
      self.job.add_job_data!(params)
-
      self.medical_history.add_medical_history_data!(params)
-
      self.medication_and_maintenance_rx.add_medication_and_maintenance_rx_data!(params)
+     self.reference.add_references!(params)
 
-     #self.reference.add_references!(params)
    end
 
 

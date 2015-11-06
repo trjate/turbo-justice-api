@@ -1,9 +1,10 @@
 class MedicalHistory < ActiveRecord::Base
   belongs_to :user
+  validates :user_id, uniqueness: true
 
   def add_medical_history_data!(params)
 
-   @user.medical_history.update(
+   self.update(
 
      ever_had_hypertension?:
      params[:ever_had_hypertension?],

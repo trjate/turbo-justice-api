@@ -45,7 +45,9 @@ class UserController < ApplicationController
        family_questions = @user.check_for_family
        family_questions.update_family_data!(params) if family_questions
 
-      #  @user.add_remaining_user_data!(params)
+       @user.initialize_tables
+       @user.add_remaining_user_data!(params)
+
        render json: @user,
        status: :ok
     else

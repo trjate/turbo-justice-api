@@ -55,7 +55,11 @@ __Example Success:__
     "emory_patient?": null,
     "biological_mother_known?": null,
     "biological_father_known?": null,
-    "has_biological_siblings?": null
+    "has_biological_siblings?": null,
+    "get_help_completing_survey?": null,
+    "willing_to_have_blood_drawn?": null,
+    "able_to_have_MRI?": null,
+    "willing_to_have_lumbar_puncture?" null
   }
 }
 ```
@@ -164,7 +168,11 @@ __Example Success:__
       "emory_patient": null,
       "biological_mother_known": null,
       "biological_father_known": null,
-      "has_biological_siblings": null
+      "has_biological_siblings": null,
+      "get_help_completing_survey?": null,
+      "willing_to_have_blood_drawn?": null,
+      "able_to_have_MRI?": null,
+      "willing_to_have_lumbar_puncture?" null
     },
     {
       "id": 2,
@@ -192,7 +200,11 @@ __Example Success:__
       "emory_patient": null,
       "biological_mother_known": null,
       "biological_father_known": true,
-      "has_biological_siblings": true
+      "has_biological_siblings": true,
+      "get_help_completing_survey?": null,
+      "willing_to_have_blood_drawn?": null,
+      "able_to_have_MRI?": null,
+      "willing_to_have_lumbar_puncture?" null
     }
   ]
 }
@@ -300,7 +312,11 @@ __Example Success:__
     "emory_patient": null,
     "biological_mother_known": false,
     "biological_father_known": true,
-    "has_biological_siblings": true
+    "has_biological_siblings": true,
+    "get_help_completing_survey?": null,
+    "willing_to_have_blood_drawn?": null,
+    "able_to_have_MRI?": null,
+    "willing_to_have_lumbar_puncture?" null
   }
 }
 ```

@@ -1,9 +1,10 @@
 class ActivitiesAndHabit < ActiveRecord::Base
   belongs_to :user
+  validates :user_id, uniqueness: true
 
   def add_activities_and_habits!(params)
 
-    @user.activities_and_habit.update(
+    self.update(
 
     frequency_of_10_plus_minute_nonstop_walks_outside:
     params[:frequency_of_10_plus_minute_nonstop_walks_outside],

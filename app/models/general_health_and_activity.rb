@@ -1,6 +1,7 @@
 class GeneralHealthAndActivity < ActiveRecord::Base
   belongs_to :user
-
+  validates :user_id, uniqueness: true
+  
   def add_general_health_and_activity_data!(params)
 
      self.update(

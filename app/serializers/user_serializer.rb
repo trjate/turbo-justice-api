@@ -25,7 +25,11 @@ class UserSerializer < ActiveModel::Serializer
               :emory_patient?,
               :biological_mother_known?,
               :biological_father_known?,
-              :has_biological_siblings?
+              :has_biological_siblings?,
+              :get_help_completing_survey?,
+              :willing_to_have_blood_drawn?,
+              :able_to_have_MRI?,
+              :willing_to_have_lumbar_puncture?
 
 
 end
