@@ -75,7 +75,7 @@ After a user registers he will need to pass the following parameters in the head
 
 This endpoint should be called only after a user has been registered at *```POST '/auth'```*.
 
-A few important things to note: 
+A few important things to note:
 
 * A FamilyQuestion table can only be created for a user if he indicates ***true*** on at least one of following three attributes on the User table:
 
@@ -84,7 +84,7 @@ A few important things to note:
 	* ```has_biological_siblings?```
 
 	An example of this output can be seen below.  If the user does not indicate ***true*** on any of those fields it will not create a new FamilyQuestion record. All remaining Models will be applicable to every user, and they should have only one associated with their ID.
-	
+
 * Next point here?
 
 ###Index Family Questions
@@ -315,7 +315,7 @@ __Example Success:__
 * ```incorrect_guesses``` - ```integer```
 * ```clicktimes``` - ```integer```
 
-######*Clicktimes should be passed as an array of integers in Unix timestamp milliseconds.* 
+######*Clicktimes should be passed as an array of integers in Unix timestamp milliseconds.*
 
 __Example Success:__
 
