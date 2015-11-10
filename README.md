@@ -89,6 +89,8 @@ A few important things to note:
 
 #####Family Question
 
+Table name: ```'family_questions'```
+
 *All are strings except ```birthyear``` (integer).*
 
  * ```relation```
@@ -105,6 +107,8 @@ A few important things to note:
  *  ```  diagnosed_with_stroke_or_TIA?```
 
 #####User
+
+Table name: ```'users'```
 
 *			   ```      transgender?``` - ```boolean```
 *        ```      race``` - ```string```
@@ -129,6 +133,8 @@ A few important things to note:
 
 #####Activities and Habit
 
+Table name: ```'activities_and_habits'```
+
 *All are strings except ```ever_had_music_instruction_or_training?``` (boolean).*
 
 *        ```    frequency_of_10_plus_minute_nonstop_walks_outside```
@@ -146,6 +152,8 @@ A few important things to note:
 *        ```    ever_had_music_instruction_or_training?```
 
 #####General Health and Activities Over Last Two Week
+
+Table name: ```'general_health_and_activities_over_last_two_weeks'```
 
 *All are strings.*
 
@@ -167,6 +175,8 @@ A few important things to note:
 
 #####General Health and Activity
 
+Table name: ```'general_health_and_activities'```
+
 * ```overall_physical_health?``` - ```string```
 * ```overall_mental_health?``` - ```string```
 * ```trouble_remembering_things?``` - ```string```
@@ -179,6 +189,8 @@ A few important things to note:
 * ```typical_sleeptime?``` - ```integer```
 
 #####General Health and Activity Vs Last Year
+
+Table name: ```'general_health_and_activity_vs_last_years'```
 
 *All strings.*
 
@@ -199,6 +211,8 @@ A few important things to note:
 
 #####Job
 
+Table name: ```'jobs'```
+
 *All are booleans.*
 
 * ```           ever_work_for_6_plus_months_with_regular_solvent_exposure?```
@@ -206,6 +220,8 @@ A few important things to note:
 * ```           ever_work_for_6_plus_months_with_regular_pesticide_exposure?```
 
 #####Medical History
+
+Table name: ```'medical_histories'```
 
 * ```ever_had_hypertension?``` - ```boolean```    
 * ```age_when_diagnosed_with_hypertension?``` - ```string```
@@ -291,15 +307,17 @@ A few important things to note:
 
 #####Medication and Maintenance Rx
 
+Table name: ```'medication_and_maintenance_rxes'
+
 *Both are booleans.*
 
 * ```currently_taking_Coumadin_Warfarin_or_anti_coagulants?```
 * ```currently_taking_other_rx_medications?```
 
-###Index Family Questions
-```GET '/family_questions'```
-
 #####Reference
+
+Table name: ```'references'```
+
 *All are strings.*
 
 * ```relationship```
@@ -307,6 +325,10 @@ A few important things to note:
 * ```last_name```
 * ```email```
 * ```contact_number```
+
+
+###Index Family Questions
+```GET '/family_questions'```
 
 ```
 {
