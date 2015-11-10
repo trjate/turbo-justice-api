@@ -104,7 +104,6 @@ A few important things to note:
  *  ```  diagnosed_with_high_cholesterol_or_triglycerides?```
  *  ```  diagnosed_with_stroke_or_TIA?```
 
-
 #####User
 
 *			   ```      transgender?``` - ```boolean```
@@ -178,7 +177,6 @@ A few important things to note:
 * ```typical_bedtime?``` - ```string```
 * ```typical_waketime?``` - ```string```
 * ```typical_sleeptime?``` - ```integer```
-
 
 
 ###Index Family Questions
