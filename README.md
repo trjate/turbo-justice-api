@@ -55,11 +55,7 @@ __Example Success:__
     "emory_patient?": null,
     "biological_mother_known?": null,
     "biological_father_known?": null,
-    "has_biological_siblings?": null,
-    "get_help_completing_survey?": null,
-    "willing_to_have_blood_drawn?": null,
-    "able_to_have_MRI?": null,
-    "willing_to_have_lumbar_puncture?" null
+    "has_biological_siblings?": null
   }
 }
 ```
@@ -87,9 +83,103 @@ A few important things to note:
 	* ```biological_father_known?```
 	* ```has_biological_siblings?```
 
-	An example of this output can be seen below.  If the user does not indicate ***true*** on any of those fields it will not create a new FamilyQuestion record. All remaining Models will be applicable to every user, and they should have only one associated with their ID.
+* An example of this output can be seen below.  If the user does not indicate ***true*** on any of those fields it will not create a new FamilyQuestion record. All remaining Models will be applicable to every user, and they should have only one associated with their ID.
 
-* Next point here?
+* You can see the remaining survey params with their associated data type below.  The params are categorized according to the model they belong to.  Each model is associated with only one user.
+
+#####Family Question
+
+*All are strings except ```birthyear``` (integer).*
+
+ * ```relation```
+ * ```   birthyear```
+ *   ``` still_living?```
+ *  ``` diagnosed_with_MCI?```
+ *  ``` diagnosed_with_AD?```
+ *  ``` diagnosed_with_memory_loss_or_dementia?```
+ *    ```diagnosed_with_Parkinsons?```
+ * ```   ever_had_coronary_heart_disease_or_heart_attack?```
+ *   ``` diagnosed_with_diabetes?```
+ *  ```  diagnosed_with_hypertension?```
+ *  ```  diagnosed_with_high_cholesterol_or_triglycerides?```
+ *  ```  diagnosed_with_stroke_or_TIA?```
+
+
+#####User
+
+*			   ```      transgender?``` - ```boolean```
+*        ```      race``` - ```string```
+*        ```      hispanic_or_latino?``` - ```boolean```
+*        ```      education_level``` - ```string```
+*        ```      married?``` - ```string```
+*        ```      employed?``` - ```boolean```
+*        ```      headcount_in_household``` - ```integer```
+*        ```      total_pretax_household_income``` - ```integer```
+*        ```      height``` - ```integer```
+*        ```      weight``` - ```integer```
+*        ```      writing_hand``` - ```string```
+*        ```      gender``` - ```string```
+*        ```      emory_patient?``` - ```string```
+*        ```      biological_mother_known?``` - ```boolean```
+*        ```      biological_father_known?``` - ```boolean```
+*        ```      has_biological_siblings?``` - ```boolean```
+*        ```      get_help_completing_survey?``` - ```boolean```
+*        ```      willing_to_have_blood_drawn?``` - ```boolean```
+*        ```      able_to_have_MRI?``` - ```boolean```
+*        ```      willing_to_have_lumbar_puncture?``` - ```string```
+
+#####Activities and Habit
+
+*All are strings except ```ever_had_music_instruction_or_training?``` (boolean).*
+
+*        ```    frequency_of_10_plus_minute_nonstop_walks_outside```
+*        ```    length_of_10_plus_minute_nonstop_walks_outside```
+*        ```    usual_walking_speed?```
+*        ```    frequency_of_nonwalking_moderate_or_strenuous_exercise```
+*        ```   length_of_nonwalking_moderate_or_strenuous_exercise```
+*        ```    frequency_of_mild_exercise```
+*        ```   length_of_mild_exercise```
+*        ```    frequency_of_reading_newspaper_last_year```
+*        ```    frequency_of_reading_magazines_last_year```
+*        ```    frequency_of_reading_books_last_year```
+*        ```    frequency_of_writing_letters_or_sending_emails_last_year```
+*        ```    frequency_of_playing_games_or_solving_puzzles_last_year```
+*        ```    ever_had_music_instruction_or_training?```
+
+#####General Health and Activities Over Last Two Week
+
+*All are strings.*
+
+* ```little_interest_or_pleasure_in_doing_things?```
+* ```feeling_down_depressed_or_hopeless?```
+* ```trouble_falling_or_staying_asleep_or_sleeping_too_much?```
+* ```feeling_tired_or_having_little_energy?```
+* ```poor_appetite_or_overeating?```
+* ```feeling_like_a_failure_or_bad_about_yourself?```
+* ```trouble_concentrating_while_reading_or_watching_tv?```
+* ```moving_or_speaking_noticeably_slowly_or_being_extra_fidgety?```
+* ```feeling_nervous_anxious_or_on_edge?```
+* ```being_unable_to_control_worrying?```
+* ```worrying_too_much_about_things?```
+* ```trouble_relaxing?```
+* ```being_so_restless_you_cannot_sit_still?```
+* ```becoming_easily_annoyed_or_irritable?```
+* ```feeling_afraid_something_bad_might_happen?```
+
+#####General Health and Activity
+
+* ```overall_physical_health?``` - ```string```
+* ```overall_mental_health?``` - ```string```
+* ```trouble_remembering_things?``` - ```string```
+* ```memory_compared_to_decade_ago?``` - ```string```
+* ```average_number_of_alcoholic_drinks_each_week_over_past_year?``` - ```string```
+* ```ever_smoked_cigarettes_regularly?``` - ```boolean```
+* ```currently_smoke?``` - ```boolean```
+* ```typical_bedtime?``` - ```string```
+* ```typical_waketime?``` - ```string```
+* ```typical_sleeptime?``` - ```integer```
+
+
 
 ###Index Family Questions
 ```GET '/family_questions'```
@@ -168,11 +258,7 @@ __Example Success:__
       "emory_patient": null,
       "biological_mother_known": null,
       "biological_father_known": null,
-      "has_biological_siblings": null,
-      "get_help_completing_survey?": null,
-      "willing_to_have_blood_drawn?": null,
-      "able_to_have_MRI?": null,
-      "willing_to_have_lumbar_puncture?" null
+      "has_biological_siblings": null
     },
     {
       "id": 2,
@@ -200,11 +286,7 @@ __Example Success:__
       "emory_patient": null,
       "biological_mother_known": null,
       "biological_father_known": true,
-      "has_biological_siblings": true,
-      "get_help_completing_survey?": null,
-      "willing_to_have_blood_drawn?": null,
-      "able_to_have_MRI?": null,
-      "willing_to_have_lumbar_puncture?" null
+      "has_biological_siblings": true
     }
   ]
 }
@@ -312,11 +394,7 @@ __Example Success:__
     "emory_patient": null,
     "biological_mother_known": false,
     "biological_father_known": true,
-    "has_biological_siblings": true,
-    "get_help_completing_survey?": null,
-    "willing_to_have_blood_drawn?": null,
-    "able_to_have_MRI?": null,
-    "willing_to_have_lumbar_puncture?" null
+    "has_biological_siblings": true
   }
 }
 ```

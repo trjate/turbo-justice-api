@@ -2,6 +2,7 @@ class GeneralHealthAndActivitySerializer < ActiveModel::Serializer
 
   attributes  :id,
               :user_id,
+              :overall_physical_health?,
               :overall_mental_health?,
               :trouble_remembering_things?,
               :memory_compared_to_decade_ago?,
