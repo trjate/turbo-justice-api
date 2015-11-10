@@ -178,9 +178,135 @@ A few important things to note:
 * ```typical_waketime?``` - ```string```
 * ```typical_sleeptime?``` - ```integer```
 
+#####General Health and Activity Vs Last Year
+
+*All strings.*
+
+* ```substantially_declined_memory?```
+* ```others_tell_that_you_repeat_questions?```
+* ```misplace_things_more_often?```
+* ```rely_more_on_written_reminders?```
+* ```need_more_help_to_remember_appointments_or_holidays?```
+* ```have_more_trouble_recalling_names_or_finding_right_word?```
+* ```have_more_trouble_driving?```
+* ```have_difficulty_managing_money?```
+* ```less_involved_in_social_activities?```
+* ```work_performance_declined_significantly?```
+* ```have_more_trouble_following_news_book_plots_movies_or_shows?```
+* ```activities_that_are_substantially_more_difficult?```
+* ```more_apt_to_get_lost_in_another_city?```
+* ```more_difficulty_using_household_appliances?```
+
+#####Job
+
+*All are booleans.*
+
+* ```           ever_work_for_6_plus_months_with_regular_solvent_exposure?```
+* ```           ever_work_for_6_plus_months_with_regular_metal_fume_exposure?```
+* ```           ever_work_for_6_plus_months_with_regular_pesticide_exposure?```
+
+#####Medical History
+
+* ```ever_had_hypertension?``` - ```boolean```    
+* ```age_when_diagnosed_with_hypertension?``` - ```string```
+* ```currently_taking_hypertension_medication?``` - ```boolean```
+* ```ever_had_TIA?``` - ```boolean```
+* ```age_when_TIA_occurred?``` - ```string```
+* ```currently_taking_TIA_medication?``` - ```boolean```
+* ```ever_had_heart_attack?``` - ```boolean```
+* ```age_when_heart_attack_occurred?``` - ```string```
+* ```currently_taking_heart_attack_medication?``` - ```boolean```
+* ```ever_had_coronary_heart_disease_or_angina?``` - ```boolean```
+* ```age_when_diagnosed_with_coronary_heart_disease_or_angina?``` - ```string```
+* ```currently_taking_coronary_heart_disease_or_angina_medication?``` - ```boolean```
+* ```ever_had_congestive_heart_failure?``` - ```boolean```
+* ```age_when_diagnosed_with_congestive_heart_failure?``` - ```string```
+* ```currently_taking_congestive_heart_failure_medication?``` - ```boolean```
+* ```ever_had_high_cholesterol_or_triglycerides?``` - ```boolean```
+* ```age_when_diagnosed_with_high_cholesterol_or_triglycerides?``` - ```string```
+* ```currently_taking_high_cholesterol_or_triglycerides_medication?``` - ```boolean```
+* ```ever_had_pulmonary_embolism_DVT_or_blood_clots?``` - ```boolean```
+* ```age_when_diagnosed_with_pulmonary_embolism_DVT_or_blood_clots?``` - ```string```
+* ```currently_taking_pulmonary_embolism_DVT_or_blood_clots_meds?``` - ```boolean```
+* ```ever_had_other_vascular_or_circulatory_system_problems?``` - ```boolean```
+* ```age_when_diagnosed_with_other_vascular_or_circulatory_problems?``` - ```string```
+* ```currently_taking_other_vascular_or_circulatory_system_meds?``` - ```boolean```
+* ```ever_had_migraine_headaches?``` - ```boolean```
+* ```age_when_diagnosed_with_migraine_headaches?``` - ```string```
+* ```currently_taking_migraine_headaches_medication?``` - ```boolean```
+* ```ever_had_MCI_or_memory_loss?``` - ```boolean```
+* ```age_when_diagnosed_with_MCI_or_memory_loss?``` - ```string```
+* ```currently_taking_MCI_or_memory_loss_medication?``` - ```boolean```
+* ```ever_had_AD?``` - ```boolean```
+* ```age_when_diagnosed_with_AD?``` - ```string```
+* ```currently_taking_AD_medication?``` - ```boolean```
+* ```ever_had_other_dementia?``` - ```boolean```
+* ```age_when_diagnosed_with_other_dementia?``` - ```string```
+* ```currently_taking_other_dementia_medication?``` - ```boolean```
+* ```had_concussion_or_traumatic_brain_injury_with_unconsciousness?``` - ```boolean```
+* ```age_when_concussion_or_traumatic_brain_injury_occurred?``` - ```string```
+* ```currently_taking_concussion_or_traumatic_brain_injury_meds?``` - ```boolean```
+* ```ever_had_spinal_cord_injury_or_impairment?``` - ```boolean```
+* ```age_when_spinal_cord_injury_or_impairment_occurred?``` - ```string```
+* ```currently_taking_spinal_cord_injury_or_impairment_medication?``` - ```boolean```
+* ```ever_had_epilepsy?``` - ```boolean```
+* ```age_when_diagnosed_with_epilepsy?``` - ```string```
+* ```currently_taking_epilepsy_medication?``` - ```boolean```
+* ```ever_had_parkinsons?``` - ```boolean```
+* ```age_when_diagnosed_with_parkinsons?``` - ```string```
+* ```currently_taking_parkinsons_medication?``` - ```boolean```
+* ```ever_had_ALS?``` - ```boolean```
+* ```age_when_diagnosed_with_ALS?```
+* ```currently_taking_ALS_medication?``` - ```boolean```
+* ```ever_had_MS?``` - ```boolean```
+* ```age_when_diagnosed_with_MS?``` - ```string```
+* ```currently_taking_MS_medication?``` - ```boolean```
+* ```ever_had_other_nervous_system_problems?``` - ```boolean```
+* ```age_when_diagnosed_with_other_nervous_system_problems?``` - ```string```
+* ```currently_taking_medication_for_other_nervous_system_problems?``` - ```boolean```
+* ```ever_had_PTSD?``` - ```boolean```
+* ```ever_had_depression_or_bipolar_disorder?``` - ```boolean```
+* ```ever_had_schizophrenia?``` - ```boolean```
+* ```ever_had_other_mental_health_disorder?``` - ```boolean```
+* ```ever_had_tuberculosis?``` - ```boolean```
+* ```ever_had_hepatitis_B_or_C?``` - ```boolean```
+* ```ever_had_HIV_or_AIDS?``` - ```boolean```
+* ```ever_had_breast_cancer?``` - ```boolean```
+* ```ever_had_colon_or_rectal_cancer?``` - ```boolean```
+* ```ever_had_lung_cancer?``` - ```boolean```
+* ```ever_had_prostate_cancer?``` - ```boolean```
+* ```ever_had_melanoma?``` - ```boolean```
+* ```ever_had_other_skin_cancer?``` - ```boolean```
+* ```ever_had_leukemia?``` - ```boolean```
+* ```ever_had_lymphoma?``` - ```boolean```
+* ```ever_had_other_cancer?``` - ```boolean```
+* ```ever_had_kidney_disease_without_dialysis?``` - ```boolean```
+* ```ever_had_kidney_disease_with_dialysis?``` - ```boolean```
+* ```ever_had_chronic_lung_disease?``` - ```boolean```
+* ```ever_had_sleep_apnea?``` - ```boolean```
+* ```ever_had_thyroid_problems?``` - ```boolean```
+* ```ever_had_diabetes?``` - ```boolean```
+* ```ever_had_vision_problems_that_interfered_with_daily_stuff?``` - ```boolean```
+* ```ever_had_physical_disabilities_that_interfered_with_daily_stuff?``` - ```boolean```
+
+#####Medication and Maintenance Rx
+
+*Both are booleans.*
+
+* ```currently_taking_Coumadin_Warfarin_or_anti_coagulants?```
+* ```currently_taking_other_rx_medications?```
 
 ###Index Family Questions
 ```GET '/family_questions'```
+
+#####Reference
+*All are strings.*
+
+* ```relationship```
+* ```first_name```
+* ```last_name```
+* ```email```
+* ```contact_number```
 
 ```
 {
@@ -211,7 +337,7 @@ A few important things to note:
       "diagnosed_with_AD": null,
       "diagnosed_with_memory_loss_or_dementia": null,
       "diagnosed_with_Parkinsons": null,
-      "ever_had_coronary_heart_disease_or_heart_attack": null,
+      "```currently_had_coronary_heart_disease_or_heart_attack": null,
       "diagnosed_with_diabetes": null,
       "diagnosed_with_hypertension": null,
       "diagnosed_with_high_cholesterol_or_triglycerides": null,
