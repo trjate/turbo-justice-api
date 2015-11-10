@@ -307,7 +307,7 @@ Table name: ```'medical_histories'```
 
 #####Medication and Maintenance Rx
 
-Table name: ```'medication_and_maintenance_rxes'
+Table name: ```'medication_and_maintenance_rxes'```
 
 *Both are booleans.*
 
