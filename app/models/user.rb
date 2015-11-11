@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules.
-  include DeviseTokenAuth::Concerns::User
   devise :database_authenticatable, :registerable, #confirmable,
           :recoverable, :rememberable, :omniauthable, :trackable, :validatable
+
+  include DeviseTokenAuth::Concerns::User
 
   has_many :flankers
   has_many :digit_symbols
